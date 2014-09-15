@@ -1,0 +1,7 @@
+{
+  "name": "rusic-theme-foo",
+  "version": "1.0.0",
+  "dependencies": {
+    "gulp-ruby-sass": "0.7.1"
+  }
+}

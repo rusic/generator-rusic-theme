@@ -1,5 +1,7 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "rusic-theme-<%= title %>",
+  "version": "1.0.0",
+  "dependencies": {
+    <% if (scss) { %>"gulp-ruby-sass": "0.7.1"<% } %>
+  }
 }

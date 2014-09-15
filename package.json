@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
-  "main": "app/index.js",
+  "main": "app/index.coffee",
   "repository": "rusic/generator-rusic-theme",
   "author": {
     "name": "Rusic",
@@ -25,7 +25,8 @@
   "dependencies": {
     "yeoman-generator": "^0.17.0",
     "chalk": "^0.5.0",
-    "yosay": "^0.3.0"
+    "yosay": "^0.3.0",
+    "coffee-script": "~1.8.0"
   },
   "devDependencies": {
     "mocha": "*"

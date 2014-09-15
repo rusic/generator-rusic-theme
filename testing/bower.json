@@ -1,5 +1,5 @@
 {
-  "name": "rusic-theme-<%= title %>",
+  "name": "rusic-theme-foo",
   "version": "1.0.0",
   "dependencies": {
   }
