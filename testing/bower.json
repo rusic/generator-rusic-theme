@@ -1,9 +1,0 @@
-{
-  "name": "rusic-theme-foo",
-  "version": "1.0.0",
-  "private": "true",
-  "dependencies": {
-    "jquery-legacy": "jquery#1.10"
-  }
-}
-
