@@ -1,4 +1,3 @@
-"use strict"
 util = require("util")
 path = require("path")
 yeoman = require("yeoman-generator")
@@ -23,7 +22,7 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
       }
       {
         type: "confirm"
-        name: "coffee"
+        name: "coffeescript"
         message: "Would you like coffeescript?"
         default: true
       }
@@ -47,14 +46,31 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
 
   writing:
     app: ->
-      @dest.mkdir "#{if @scss then 'scss' else 'css'}"
+      @scriptType = if @coffeescript then 'coffee' else 'js'
+      @styleType = if @scss then 'scss' else 'css'
 
-      @copy "_index.html", "index.html"
+      # Create directories
+      @dest.mkdir @scriptType
+      @dest.mkdir "ideas"
+      @dest.mkdir "layouts"
 
+      # Copy directories
+      @directory @styleType, @styleType
+      @directory "ideas", "ideas"
+      @directory "assets", "assets"
+
+      # Templates
       @template "_package.json", "package.json", @
       @template "_bower.json", "bower.json", @
+      @template "_attributes.yml", "attributes.yml", @
+      @template "_gulpfile.coffee", "gulpfile.coffee", @
+      @template "coffee/_index.coffee", "coffee/index.coffee", @
+
+      @template "layouts/_subdomain.html.liquid", "layouts/subdomain.html.liquid", @
 
     projectfiles: ->
+      @copy "bowerrc", ".bowerrc"
+      @copy "_gulpfile.js", "gulpfile.js"
       # @src.copy "editorconfig", ".editorconfig"
       # @src.copy "jshintrc", ".jshintrc"
 

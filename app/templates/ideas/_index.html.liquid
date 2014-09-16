@@ -1,0 +1,21 @@
+<!--
+  ideas/index.html.liquid
+
+  This is the homepage of your space and where you list all your ideas. They
+  can be accessed using `space.ideas`.
+
+  The contents of this template are rendered where `content_for_layout` is
+  called within layouts/subdomain.html.liquid. See http://developer.rusic.com/
+  for more details.
+-->
+<div class="inner cover">
+  <div class="list-group">
+    <!-- Hint: loop over the ideas in the space using liquid's `for` tag -->
+    {% for idea in space.ideas %}
+      <a href="{{ idea.link }}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ idea.title }}</h4>
+        <p class="list-group-item-text">{{ idea.content | truncate: 100 | markdown }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>

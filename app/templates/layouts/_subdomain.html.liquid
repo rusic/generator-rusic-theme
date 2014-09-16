@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+  layouts/subdomain.html.liquid
+
+  This is your main layout file. It wraps all other templates and is where you
+  should put your main HTML head and body. Other templates (for ideas or pages)
+  are rendered by the `content_for_layout` tag. See http://developer.rusic.com/
+  for more details.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Hint: use the `asset_url` to reference uploaded assets -->
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
+
+    <title><%= title %></title>
+
+    <!--
+      Hint: use the `stylesheet_url` or `stylesheet_tag` filters for referencing
+      stylesheets. You can use liquid within stylesheets for referencing other
+      assets (images or fonts for example).
+    -->
+    <link href="{{ 'bootstrap.css' | stylesheet_url }}" rel="stylesheet" />
+    <link href="{{ 'cover.css' | stylesheet_url }}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <img src="{{ space.logo_url }}">
+              <h1 class="masthead-brand"><%= title %></h1>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="{{ space.permalink }}">All ideas</a></li>
+                <li><a href="{{ space.permalink }}/pages/about">About</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!--
+            Hint: use `content_for_layout` to render the relevant content
+            from the ideas or page template
+          -->
+          {{ content_for_layout }}
+
+          <div class="mastfoot">
+            <div class="inner">
+              <small>This site is powered by <a href="http://rusic.com/">Rusic</a></small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!--
+      Hint: use the `javascript_url` or `script_tag` filters for referencing
+      JavaScript files. You can use liquid within js files for referencing other
+      assets (images or fonts for example).
+    -->
+    <script src="{{ 'bootstrap.js' | javascript_url }}"></script>
+  </body>
+</html>

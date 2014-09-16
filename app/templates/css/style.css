@@ -1,0 +1,13 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#powered-by-rusic {
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-image: url({{ 'powered_by_rusic.png' | image_url }});
+  width: 200px;
+  height: 21px;
+}
