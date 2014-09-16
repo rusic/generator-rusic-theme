@@ -1,0 +1,5 @@
+# https://github.com/rusic/rusic-gem#deploy-using-a-rusic-file
+production:
+  api_key: <%= apikey %>
+  api_host: api.rusic.com
+  theme: <%= themeid %>

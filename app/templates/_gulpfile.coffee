@@ -7,24 +7,25 @@ concat = require('gulp-concat')
 livereload = require('gulp-livereload')
 uglify = require('gulp-uglify')
 gulpFilter = require('gulp-filter')
-
 prefix = require('gulp-autoprefixer')
-
 
 paths = {
   output: "assets"<% if (coffeescript) { %>
-  coffee: "coffee/**/*.coffee"<% } %>
+  coffee: "coffee/**/*.coffee"<% } %><% if (scss) { %>
+  sass: "scss/style.scss"<% } %>
   js: "js/**/*.js"
-  vendor: [
+  vendorJS: [
     "components/jquery-legacy/jquery.js"
+    "components/bootstrap/dist/js/bootstrap.js"
   ]
-  sass:
-    "scss/style.scss"
+  vendorCSS: [
+    "components/bootstrap/dist/css/bootstrap.css"
+  ]
 }
 
 gulp.task "scripts", ->
   combinedFiles = _.flatten([
-    paths.vendor
+    paths.vendorJS
     paths.js<% if (coffeescript) { %>
     paths.coffee<% } %>
   ])
@@ -41,16 +42,38 @@ gulp.task "scripts", ->
     .pipe gulp.dest( paths.output )
     .pipe(livereload())
 
-# gulp.task "sass", ->
-#   gulp
-#     .src(paths.sass)
-#     .pipe(sass({
-#       style: "compressed"
-#     }))
-#     .pipe gulp.dest(paths.output)
+gulp.task "styles", ->
 
-# gulp.task "watch", ->
-#   gulp.watch ["scss/**/*.scss"], ["sass"]
-#   gulp.watch ["coffee/**/*.coffee", "vendor/**/*.js"], ["scripts"]
+  combinedFiles = _.flatten([
+    paths.vendorCSS<% if (scss) { %>
+    paths.sass<% } %>
+  ])
+  <% if (scss) { %>
+  scssFilter = gulpFilter("**/*.scss")<% } %>
 
-gulp.task "default", ["scripts"]
+  gulp
+    .src(combinedFiles)<% if (scss) { %>
+    .pipe(scssFilter)
+    .pipe(sass({
+      style: "compressed"
+    }))
+    .pipe(scssFilter.restore())<% } %>
+    .pipe(concat("style.css"))
+    .pipe(prefix())
+    .pipe gulp.dest( paths.output )
+    .pipe(livereload())
+
+gulp.task "watch", ->
+
+  gulp.watch [
+    paths.vendorJS
+    paths.js<% if (coffeescript) { %>
+    paths.coffee<% } %>
+  ], ["scripts"]
+
+  gulp.watch [
+    paths.vendorCSS<% if (scss) { %>
+    paths.sass<% } %>
+  ], ["styles"]
+
+gulp.task "default", ["scripts", "styles", "watch"]

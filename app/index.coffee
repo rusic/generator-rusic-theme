@@ -38,6 +38,18 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
         message: "What is the description of your theme?"
         default: "bar"
       }
+      {
+        type: "input"
+        name: "apikey"
+        message: "What your API key?"
+        default: "abc123"
+      }
+      {
+        type: "input"
+        name: "themeid"
+        message: "What your Theme ID?"
+        default: "1"
+      }
     ]
     @prompt prompts, ((properties) ->
       @[property] = value for property, value of properties
@@ -64,6 +76,7 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
       @template "_bower.json", "bower.json", @
       @template "_attributes.yml", "attributes.yml", @
       @template "_gulpfile.coffee", "gulpfile.coffee", @
+      @template "_rusic.yml", "rusic.yml", @
       @template "coffee/_index.coffee", "coffee/index.coffee", @
 
       @template "layouts/_subdomain.html.liquid", "layouts/subdomain.html.liquid", @
@@ -71,11 +84,25 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
     projectfiles: ->
       @copy "bowerrc", ".bowerrc"
       @copy "_gulpfile.js", "gulpfile.js"
-      # @src.copy "editorconfig", ".editorconfig"
-      # @src.copy "jshintrc", ".jshintrc"
+      @copy "gitignore", ".gitignore"
 
   end: ->
     @installDependencies();
+
+    @log """
+
+    Rusic
+    =====
+
+    Great your all set to start theming. Here's what you need to know -
+
+    To compile your styles and scripts run -
+    $ gulp
+
+    To deploy to Rusic run -
+    $ rusic deploy production
+
+    """
 )
 
 module.exports = RusicThemeGenerator
