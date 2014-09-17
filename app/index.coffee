@@ -6,7 +6,6 @@ yosay = require("yosay")
 RusicThemeGenerator = yeoman.generators.Base.extend(
   initializing: ->
     @pkg = require("../package.json")
-    @destinationRoot "./testing"
 
   prompting: ->
     done = @async()

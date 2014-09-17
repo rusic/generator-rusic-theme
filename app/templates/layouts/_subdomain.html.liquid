@@ -23,8 +23,7 @@
       stylesheets. You can use liquid within stylesheets for referencing other
       assets (images or fonts for example).
     -->
-    <link href="{{ 'bootstrap.css' | stylesheet_url }}" rel="stylesheet" />
-    <link href="{{ 'cover.css' | stylesheet_url }}" rel="stylesheet" />
+    <link href="{{ 'style.css' | stylesheet_url }}" rel="stylesheet" />
   </head>
 
   <body>
@@ -59,13 +58,11 @@
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     <!--
       Hint: use the `javascript_url` or `script_tag` filters for referencing
       JavaScript files. You can use liquid within js files for referencing other
       assets (images or fonts for example).
     -->
-    <script src="{{ 'bootstrap.js' | javascript_url }}"></script>
+    <script src="{{ 'script.js' | javascript_url }}"></script>
   </body>
 </html>

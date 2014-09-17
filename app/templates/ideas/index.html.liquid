@@ -14,7 +14,7 @@
     {% for idea in space.ideas %}
       <a href="{{ idea.link }}" class="list-group-item">
         <h4 class="list-group-item-heading">{{ idea.title }}</h4>
-        <p class="list-group-item-text">{{ idea.content | truncate: 100 | markdown }}</p>
+        <p class="list-group-item-text">{{ idea.content | markdown }}</p>
       </a>
     {% endfor %}
   </div>
