@@ -1,7 +1,7 @@
 {
   "name": "generator-rusic-theme",
   "version": "0.0.0",
-  "description": "Yeoman generator",
+  "description": "Rusic theme yeoman generator",
   "license": "MIT",
   "main": "app/index.coffee",
   "repository": "rusic/generator-rusic-theme",
