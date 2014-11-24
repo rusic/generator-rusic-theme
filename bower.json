@@ -1,0 +1,28 @@
+{
+  "name": "generator-rusic-theme",
+  "version": "1.0.0",
+  "homepage": "https://github.com/rusic/generator-rusic-theme",
+  "authors": [
+    "Adma Butler <adam@lab.io>"
+  ],
+  "description": "Rusic theme yeoman generator",
+  "main": "app/index.coffee",
+  "keywords": [
+    "yeoman",
+    "rusic",
+    "generator",
+    "theme"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "masonry": "~3.1.5"
+  }
+}
