@@ -4,14 +4,12 @@
 
 ## Getting Started
 
-  git clone git@github.com:rusic/generator-rusic-theme.git
-  npm install -g ./
-
-> We're not on npm (yet). To install run the above commands.
-
-  mkdir rusic-theme-forum
-  cd rusic-theme-forum
-  yo rusic-theme
+```bash
+$ npm install -g generator-rusic-theme
+$ mkdir rusic-theme-forum
+$ cd rusic-theme-forum
+$ yo rusic-theme
+```
 
 > Run the above to initiate the generator
 
