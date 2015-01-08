@@ -73,7 +73,7 @@ gulp.task "watch", ->
 
   gulp.watch [
     paths.vendorCSS<% if (scss) { %>
-    paths.sass<% } %>
+    "**/*.scss"<% } %>
   ], ["styles"]
 
 gulp.task "default", ["scripts", "styles", "watch"]
