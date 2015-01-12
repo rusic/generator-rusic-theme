@@ -1,6 +1,6 @@
 {
   "name": "generator-rusic-theme",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Rusic theme yeoman generator",
   "license": "MIT",
   "main": "app/index.coffee",
