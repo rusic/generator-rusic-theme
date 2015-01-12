@@ -75,7 +75,7 @@ RusicThemeGenerator = yeoman.generators.Base.extend(
       @template "_bower.json", "bower.json", @
       @template "_attributes.yml", "attributes.yml", @
       @template "_gulpfile.coffee", "gulpfile.coffee", @
-      @template "_rusic.yml", "rusic.yml", @
+      @template "_.rusic.yml", ".rusic.yml", @
       @template "coffee/_index.coffee", "coffee/index.coffee", @
 
       @template "layouts/_subdomain.html.liquid", "layouts/subdomain.html.liquid", @
