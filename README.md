@@ -28,12 +28,16 @@ Contributions are welcome, please follow [GitHub Flow](https://guides.github.com
 
 #### Building
 
-  cd generator-rusic-theme
-  npm install -g ./
+```
+cd generator-rusic-theme
+npm install -g ./
+```
 
 #### Publishing (core-team)
 
-  npm publish
+```
+npm publish
+```
 
 ## License
 
