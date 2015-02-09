@@ -40,7 +40,6 @@ gulp.task "scripts", ->
     .pipe(concat("script.js"))
     .pipe(uglify())
     .pipe gulp.dest( paths.output )
-    .pipe(livereload())
 
 gulp.task "styles", ->
 
@@ -61,7 +60,6 @@ gulp.task "styles", ->
     .pipe(concat("style.css"))
     .pipe(prefix())
     .pipe gulp.dest( paths.output )
-    .pipe(livereload())
 
 gulp.task "watch", ->
 
@@ -76,4 +74,5 @@ gulp.task "watch", ->
     "**/*.scss"<% } %>
   ], ["styles"]
 
+gulp.task "build", ["scripts", "styles"]
 gulp.task "default", ["scripts", "styles", "watch"]
