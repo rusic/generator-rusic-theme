@@ -42,6 +42,11 @@
             </div>
           </div>
 
+          {% if notice %}
+            {{ notice }}
+          {% endif %}
+
+
           <!--
             Hint: use `content_for_layout` to render the relevant content
             from the ideas or page template
