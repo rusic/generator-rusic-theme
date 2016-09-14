@@ -5,7 +5,7 @@
 ## Getting Started
 
 ```bash
-$ npm install -g yeoman
+$ npm install -g yo
 $ npm install -g generator-rusic-theme
 $ mkdir rusic-theme-forum
 $ cd rusic-theme-forum
